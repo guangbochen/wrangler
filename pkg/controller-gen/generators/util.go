@@ -42,8 +42,8 @@ func namespaced(t *types.Type) bool {
 	for _, line := range t.SecondClosestCommentLines {
 		if strings.HasPrefix(line, "+kubebuilder:resource:path=") {
 			kubeBuilder = true
-			if strings.Contains(line, "scope=Namespaced") {
-				return true
+			if strings.Contains(line, "scope=Cluster") {
+				return false
 			}
 		}
 	}
